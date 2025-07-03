@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "WorkSans";
+    overflow: hidden;
+}
+@font-face {
+    font-family: "WorkSans";
+    src: url("assets/fonts/WorkSans-VariableFont_wght.ttf");
+}
+:root{
+    --White: #ffffff;
+    --Purple-100: #f9f0ff;
+    --Purple-600: #8c6991;
+    --Purple-950: #2f1533;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    background: var(--Purple-100);
+}
+.container{
+    background: url("assets/images/background-pattern-desktop.svg") no-repeat top;
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.accordions{
+    transition: 0.3s ease all;
+    max-width: 580px;
+    background: var(--White);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 5px 4px 50px rgba(140, 105, 145, 0.305);
+}
+.logo{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.logo h1{
+    font-weight: 700;
+    font-size: 3em;
+    margin-left: 20px;
+}
+.btn{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.btn button{
+    position: relative;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+    background: var(--White);
+    border: none;
+    color: black;
+    font-weight: 600;
+    font-size: 1em;
+}
+.btn button::after{
+    content: "";
+    display: block;
+    background: url("assets/images/icon-plus.svg") no-repeat center;
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+    z-index: 999;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.btn.active button::after{
+    background: url("assets/images/icon-minus.svg") no-repeat center;
+    background-size: contain;
+    
+}
+.btn button:hover{
+    color: Purple;
+}
+.content p{
+    color: var(--Purple-950);
+    font-size: 16px;
+    background: white;
+}
+.content{
+    display: flex;
+    align-items: end;
+   height: 0px;
+   transition: 1s ease;
+}
+.btn.active + .content{
+    height: 100px;
+}
+.accordion{
+    margin-bottom: 10px;
+}
+
+@media (max-width:400px) {
+    body{
+        background: url("assets/images/background-pattern-mobile.svg") no-repeat top;
+        background-size: contain;
+    }
+    .accordions{
+        width: 340px;
+    }
+    .btn button{
+        padding-right: 10px;
+        
+    }
+}
